@@ -86,3 +86,56 @@ variable "tags" {
   description = "A map of tags to add to all resources"
   default     = {}
 }
+
+## Setting for VPC - VPN setting
+variable "create_vpc" {
+  description = "Controls if VPC should be created (it affects almost all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "enable_vpn_gateway" {
+  description = "Should be true if you want to create a new VPN Gateway resource and attach it to the VPC"
+  type        = bool
+  default     = false
+}
+
+variable "vpn_gateway_id" {
+  description = "ID of VPN Gateway to attach to the VPC"
+  default     = ""
+}
+
+variable "amazon_side_asn" {
+  description = "The Autonomous System Number (ASN) for the Amazon side of the gateway. By default the virtual private gateway is created with the current default Amazon ASN."
+  default     = "7224"
+}
+
+variable "vpn_tags" {
+  description = "Additional tags for the VPN gateway"
+  default     = ""
+}
+
+variable "customer_gateway" {
+  description = "Default customer gateway"
+  type        = bool
+  default     = false
+}
+
+variable "customer_gateway_id" {
+  description = "The id of the Customer Gateway."
+  type        = string
+  default     = ""
+}
+
+variable "bgp_asn" {
+  default     = 65000
+}
+
+variable "ip_address" {
+  description = "IP address for customer gateway ip"
+  default     = ""
+}
+
+variable "vpc_peering_connection_id" {
+  default = ""
+}
